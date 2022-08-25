@@ -1,19 +1,28 @@
 <app-jumbotron [title]="title" [subtitle]="subtitle"></app-jumbotron>
 
-<div>
+<div class="container">
+    <div class="row justify-content-center">
 
-    <label for="userId">User Id:</label>
-    <input type="text" id="userId" placeholder="Nome Utente" [(ngModel)]=userId >
+        <div class="col-12 col-md-4 border border-1 p-4 rounded-3 mb-4">
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Password" [(ngModel)]=password >
+            <div class="mb-3">
+                <label for="userId" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="userId" placeholder="Nome Utente" [(ngModel)]=userId >
+            </div>
 
-    <button class="btn btn-primary" (click) = getsAuth() >Connettiti</button>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]=password >
+            </div>
 
+            <button class="btn btn-primary w-100" (click) = getsAuth() >Submit</button>
+            
+        </div>
+        
+        <div *ngIf="!authenticated" class="alert alert-danger" role="alert">
+            {{ errMessage }}
+        </div>
+
+    </div>
 </div>
 
-<div *ngIf="!authenticated">
-
-    <p>{{ errMessage }}</p>
-
-</div>
