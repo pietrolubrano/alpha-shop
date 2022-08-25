@@ -35,9 +35,11 @@
                     <img src="/assets/images/user.png" height="30" alt="">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Accedi</a></li>
+                  <li><a class="dropdown-item" href="#">Registrati</a></li>
+                  <li><a class="dropdown-item" href="#">Disabilita</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a [ngClass]="{'dropdown-item': true, 'disabled': !basicAuth.isLogged() }" (click)="basicAuth.logOut()">Logout {{ basicAuth.loggedUser() }}</a></li>
                 </ul>
               </li>
         </ul>
