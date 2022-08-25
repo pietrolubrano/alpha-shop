@@ -13,7 +13,6 @@ export class AuthappService {
 
     if(retVal){
       sessionStorage.setItem('Utente', userId)
-      console.log('sessione')
     }
 
     return retVal
