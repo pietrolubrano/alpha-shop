@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthappService } from 'src/services/authapp.service';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  userId: String = 'Nicola'
-  password: String = ''
+  userId: string = 'Nicola'
+  password: string = ''
 
   authenticated: Boolean = true
 
-  errMessage: String = 'Spiacente la User Id e/o la password sono errati'
+  errMessage: string = 'Spiacente la User Id e/o la password sono errati'
 
   title: string = 'Ciao'
   subtitle: string = 'Procedi ad inserire la user id e la password'
   
-  constructor(private route: Router) { }
+  constructor(private route: Router, private basicAuth: AuthappService) { }
 
   ngOnInit(): void {
 
@@ -26,12 +27,11 @@ export class LoginComponent implements OnInit {
 
   getsAuth = (): void => {
 
-    console.log(this.userId)
-    console.log(this.password)
+    if(this.basicAuth.autentica(this.userId, this.password)){
 
-    if(this.userId === 'Nicola' && this.password === 'ciccio'){
       this.route.navigate(['welcome', this.userId])
       this.authenticated = true
+
     } else {
       this.authenticated = false
     }
