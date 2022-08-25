@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" aria-label="Fourth navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Expand at md</a>
+      <a class="navbar-brand" href="/">Alpha Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,21 +8,42 @@
       <div class="collapse navbar-collapse" id="navbarsExample04">
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
           <li class="nav-item">
-            <a [ngClass]="{'active': activeRoute === '/welcome', 'nav-link' : true }" routerLink="/welcome">Home</a>
+            <a [ngClass]="{'active': activeRoute === '/welcome', 'nav-link' : true }" routerLink="/welcome">
+              <span class="material-icons md-home" title="home" aria-hidden="true"></span>
+              Home
+            </a>
           </li>
+
           <li class="nav-item">
-            <a [ngClass]="{'active': activeRoute === '/articoli', 'nav-link' : true }" routerLink="/articoli">Prodotti</a>
+            <a [ngClass]="{'active': activeRoute === '/articoli', 'nav-link' : true }" routerLink="/articoli">
+              <span class="material-icons md-archive" title="prodotti" aria-hidden="true"></span>
+              Prodotti
+            </a>
           </li>
+
           <li class="nav-item">
-            <a [ngClass]="{'active': activeRoute === '/promozione', 'nav-link' : true }" routerLink="/promozione">Promozioni</a>
+            <a [ngClass]="{'active': activeRoute === '/promozione', 'nav-link' : true }" routerLink="/promozione">
+              <span class="material-icons md-campaign" title="promozioni" aria-hidden="true"></span>
+              Promozioni
+            </a>
           </li>
+
           <li class="nav-item">
-            <a [ngClass]="{'active': activeRoute === '/fidelity', 'nav-link' : true }" routerLink="/fidelity">Fidelity</a>
+            <a [ngClass]="{'active': activeRoute === '/fidelity', 'nav-link' : true }" routerLink="/fidelity">
+              <span class="material-icons md-card_membership" title="fidelity" aria-hidden="true"></span>
+              Fidelity
+            </a>
           </li>
+
           <li class="nav-item">
-            <a [ngClass]="{'active': activeRoute === '/ordini', 'nav-link' : true }" routerLink="/ordini">Ordini</a>
+            <a [ngClass]="{'active': activeRoute === '/ordini', 'nav-link' : true }" routerLink="/ordini">
+              <span class="material-icons md-shopping_cart" title="ordini" aria-hidden="true"></span>
+              Ordini
+            </a>
           </li>
+
         </ul>
 
         <form role="search">
@@ -32,7 +53,7 @@
         <ul class="navbar-nav mb-2 mb-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/assets/images/user.png" height="30" alt="">
+                    <img src="/assets/images/user.png" height="30" alt="user">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="#">Accedi</a></li>
