@@ -9,12 +9,13 @@ import { SalutiDataService } from 'src/services/data/saluti-data.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  utente: String = '';
+  utente: string = '';
 
   title: string = 'Ciao'
   subtitle: string = 'Procedi ad inserire la user id e la password'
   
   saluti : string = "";
+  errore : string = "";
 
   constructor(private route: ActivatedRoute, private salutiService: SalutiDataService) { }
 
@@ -23,13 +24,19 @@ export class WelcomeComponent implements OnInit {
   }
 
   getSaluti = () : void => {
-    this.salutiService.getSaluti().subscribe(
-      response => this.handleResponse(response)
-    )
+    this.salutiService.getSaluti(this.utente).subscribe({
+      next: this.handleResponse.bind(this),
+      error: this.handleError.bind(this)
+    })
   }
 
   handleResponse = (response: Object) => {
     this.saluti = response.toString()
   }
-  
+
+  handleError = (error: any) => {
+    console.log(error)
+    this.errore = error.error.message.toString()
+  }
+
 }

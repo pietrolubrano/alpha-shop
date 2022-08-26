@@ -9,6 +9,6 @@ export class SalutiDataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSaluti = () : Observable<Object> => this.httpClient.get('http://localhost:8050/api/saluti');
-  
+  getSaluti = (nome : string) : Observable<Object> => this.httpClient.get('http://localhost:8050/api/saluti/' + nome);
+
 }
