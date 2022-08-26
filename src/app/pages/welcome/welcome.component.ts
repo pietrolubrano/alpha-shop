@@ -21,7 +21,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   getSaluti = () : void => {
-    console.log(this.salutiService.getSaluti())
+    this.salutiService.getSaluti().subscribe(
+      response => console.log(response)
+    )
   }
 
 }
