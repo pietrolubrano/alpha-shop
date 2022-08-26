@@ -18,4 +18,14 @@ export class GridArticoliComponent implements OnInit {
     console.log(this.articoli$)
   }
 
+  handleEdit = (code : string) => {
+    console.log('clicato taso modifica del codice: ' + code)
+  }
+
+  handleDelete = (code : string) => {
+    console.log('clicato taso elimina del codice: ' + code)
+
+    this.articoli$.splice(this.articoli$.findIndex(x => x.code === code), 1);
+    console.log(this.articoli$);
+  }
 }
