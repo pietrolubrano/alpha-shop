@@ -14,6 +14,8 @@ export class WelcomeComponent implements OnInit {
   title: string = 'Ciao'
   subtitle: string = 'Procedi ad inserire la user id e la password'
   
+  saluti : string = "";
+
   constructor(private route: ActivatedRoute, private salutiService: SalutiDataService) { }
 
   ngOnInit(): void {
@@ -22,8 +24,12 @@ export class WelcomeComponent implements OnInit {
 
   getSaluti = () : void => {
     this.salutiService.getSaluti().subscribe(
-      response => console.log(response)
+      response => this.handleResponse(response)
     )
   }
 
+  handleResponse = (response: Object) => {
+    this.saluti = response.toString()
+  }
+  
 }
