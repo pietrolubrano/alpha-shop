@@ -1,6 +1,6 @@
 <section class="content-main">
 
-    <div class="content-header">
+    <div class="container">
       <h2 class="content-title">Lista Prodotti</h2>
       <div>
         <!-- <button class="btn btn-primary" (click)="Modifica('')">
@@ -9,9 +9,8 @@
         </button> -->
       </div>
     </div>
-    <div class="card mb-4">
-    
-    <header class="card-header">
+
+    <header class="container mb-4">
         <div class="row gx-3">
 
             <!-- <div class="col-lg-4 col-md-6 me-auto">
@@ -47,13 +46,19 @@
 
     </header>
   
-      <div class="card-body">
+      <div class="container">
 
+        <div class="row" *ngIf="articoli$">
+            <app-articoli-card
+                class="col-4"
+                *ngFor="let articolo of articoli$"
+                [articolo]="articolo"
+            >
+
+            </app-articoli-card>
+        </div>
 
         <div class="table-responsive">
-
-            
-            <app-articoli-card></app-articoli-card>
             
             <!-- <table class="table table-hover">
 
@@ -122,10 +127,8 @@
           </div> -->
   
         </div>
-      </div>
-  
-  
     </div>
+  
   </section>
   
   
