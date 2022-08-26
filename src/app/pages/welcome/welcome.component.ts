@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SalutiDataService } from 'src/services/data/saluti-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -13,10 +14,14 @@ export class WelcomeComponent implements OnInit {
   title: string = 'Ciao'
   subtitle: string = 'Procedi ad inserire la user id e la password'
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private salutiService: SalutiDataService) { }
 
   ngOnInit(): void {
     this.utente = this.route.snapshot.params['userId']
+  }
+
+  getSaluti = () : void => {
+    console.log(this.salutiService.getSaluti())
   }
 
 }
